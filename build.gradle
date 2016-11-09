@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
+version = "0.0.1"
 group= "com.sneakingshadow.miniatureblocks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "sneakingshadow.miniatureblocks"
+archivesBaseName = "com.sneakingshadow.miniatureblocks"
 
 minecraft {
     version = "1.7.10-10.13.4.1448-1.7.10"
