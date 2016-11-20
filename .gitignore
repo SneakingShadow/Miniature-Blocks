@@ -1,7 +1,6 @@
 Thumbs.db
 
 ## Minecraft
-/decompiled
 /minecraft
 
 ## gradle
@@ -42,7 +41,7 @@ Thumbs.db
 
 ## Private Stuffs
 /private.properties
-/setup.cmd
+/*.cmd
 
 ## Jars
 *.jar
