@@ -1,6 +1,7 @@
 package com.sneakingshadow.miniatureblocks;
 
 import com.sneakingshadow.miniatureblocks.Reference.Ref;
+import com.sneakingshadow.miniatureblocks.init.ModBlocks;
 import com.sneakingshadow.miniatureblocks.proxy.IProxy;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -23,7 +24,7 @@ public class MiniatureBlocks
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
+        ModBlocks.init();
     }
 
     @Mod.EventHandler
