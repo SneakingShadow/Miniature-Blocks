@@ -1,4 +1,4 @@
-package com.sneakingshadow.miniatureblocks.Reference;
+package com.sneakingshadow.miniatureblocks.reference;
 
 /**
  * Created by SneakingShadow on 09.11.2016.

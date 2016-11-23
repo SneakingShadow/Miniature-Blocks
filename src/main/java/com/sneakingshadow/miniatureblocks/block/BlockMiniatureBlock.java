@@ -1,6 +1,6 @@
 package com.sneakingshadow.miniatureblocks.block;
 
-import com.sneakingshadow.miniatureblocks.Reference.Ref;
+import com.sneakingshadow.miniatureblocks.reference.Ref;
 import com.sneakingshadow.miniatureblocks.tileentity.TileEntityMiniatureBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
