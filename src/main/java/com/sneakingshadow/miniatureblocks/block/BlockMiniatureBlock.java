@@ -253,7 +253,7 @@ public class BlockMiniatureBlock extends BlockContainer {
      * @param side The side to check
      * @return True if the block is solid on the specified side.
      */
-    public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
+    /*public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
     {
         int meta = world.getBlockMetadata(x, y, z);
 
