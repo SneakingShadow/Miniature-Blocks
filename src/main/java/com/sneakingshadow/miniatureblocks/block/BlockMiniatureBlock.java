@@ -1,6 +1,6 @@
 package com.sneakingshadow.miniatureblocks.block;
 
-import com.sneakingshadow.miniatureblocks.Reference.Ref;
+import com.sneakingshadow.miniatureblocks.reference.Ref;
 import com.sneakingshadow.miniatureblocks.tileentity.TileEntityMiniatureBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -253,7 +253,7 @@ public class BlockMiniatureBlock extends BlockContainer {
      * @param side The side to check
      * @return True if the block is solid on the specified side.
      */
-    public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
+    /*public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
     {
         int meta = world.getBlockMetadata(x, y, z);
 

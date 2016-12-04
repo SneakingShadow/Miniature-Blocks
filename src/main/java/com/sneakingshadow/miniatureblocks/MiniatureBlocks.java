@@ -1,6 +1,6 @@
 package com.sneakingshadow.miniatureblocks;
 
-import com.sneakingshadow.miniatureblocks.Reference.Ref;
+import com.sneakingshadow.miniatureblocks.reference.Ref;
 import com.sneakingshadow.miniatureblocks.init.ModBlocks;
 import com.sneakingshadow.miniatureblocks.proxy.IProxy;
 import cpw.mods.fml.common.Mod;
