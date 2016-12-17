@@ -36,11 +36,11 @@ public class BlockMiniatureBlock extends BlockContainer {
     /**
      * Returns a new instance of a block's tile entity class. Called on placing the block.
      *
-     * @param p_149915_1_
-     * @param p_149915_2_
+     * @param world
+     * @param meta
      */
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+    public TileEntity createNewTileEntity(World world, int meta) {
         return new TileEntityMiniatureBlock();
     }
 
@@ -48,13 +48,14 @@ public class BlockMiniatureBlock extends BlockContainer {
      * Adds all intersecting collision boxes to a list. (Be sure to only add boxes to the list if they intersect the
      * mask.) Parameters: World, X, Y, Z, mask, list, colliding entity
      */
-    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_)
+    @SuppressWarnings("unchecked")
+    public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
     {
-        AxisAlignedBB axisalignedbb1 = this.getCollisionBoundingBoxFromPool(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_);
+        AxisAlignedBB axisalignedbb1 = this.getCollisionBoundingBoxFromPool(world, x, y, z);
 
-        if (axisalignedbb1 != null && p_149743_5_.intersectsWith(axisalignedbb1))
+        if (axisalignedbb1 != null && axisAlignedBB.intersectsWith(axisalignedbb1))
         {
-            p_149743_6_.add(axisalignedbb1);
+            list.add(axisalignedbb1);
         }
     }
 
@@ -62,18 +63,18 @@ public class BlockMiniatureBlock extends BlockContainer {
      * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
      * cleared to be reused)
      */
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
     {
-        return AxisAlignedBB.getBoundingBox((double)p_149668_2_ + this.minX, (double)p_149668_3_ + this.minY, (double)p_149668_4_ + this.minZ, (double)p_149668_2_ + this.maxX, (double)p_149668_3_ + this.maxY, (double)p_149668_4_ + this.maxZ);
+        return AxisAlignedBB.getBoundingBox((double)x + this.minX, (double)y + this.minY, (double)z + this.minZ, (double)x + this.maxX, (double)y + this.maxY, (double)z + this.maxZ);
     }
 
     /**
      * Returns the bounding box of the wired rectangular prism to render.
      */
     @SideOnly(Side.CLIENT)
-    public AxisAlignedBB getSelectedBoundingBoxFromPool(World p_149633_1_, int p_149633_2_, int p_149633_3_, int p_149633_4_)
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
     {
-        return AxisAlignedBB.getBoundingBox((double)p_149633_2_ + this.minX, (double)p_149633_3_ + this.minY, (double)p_149633_4_ + this.minZ, (double)p_149633_2_ + this.maxX, (double)p_149633_3_ + this.maxY, (double)p_149633_4_ + this.maxZ);
+        return AxisAlignedBB.getBoundingBox((double)x + this.minX, (double)y + this.minY, (double)z + this.minZ, (double)x + this.maxX, (double)y + this.maxY, (double)z + this.maxZ);
     }
 
     /**
@@ -215,15 +216,15 @@ public class BlockMiniatureBlock extends BlockContainer {
     /**
      * Checks if a vector is within the X and Y bounds of the block.
      */
-    private boolean isVecInsideXYBounds(Vec3 p_149661_1_)
+    private boolean isVecInsideXYBounds(Vec3 vector)
     {
-        return p_149661_1_ == null ? false : p_149661_1_.xCoord >= this.minX && p_149661_1_.xCoord <= this.maxX && p_149661_1_.yCoord >= this.minY && p_149661_1_.yCoord <= this.maxY;
+        return vector == null ? false : vector.xCoord >= this.minX && vector.xCoord <= this.maxX && vector.yCoord >= this.minY && vector.yCoord <= this.maxY;
     }
 
     /**
      * Updates the blocks bounds based on its current state. Args: world, x, y, z
      */
-    public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
+    public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
 
     }
 
@@ -250,10 +251,10 @@ public class BlockMiniatureBlock extends BlockContainer {
      * @param x X Position
      * @param y Y position
      * @param z Z position
-     * @param side The side to check
+     * @param forgeDirection The side to check
      * @return True if the block is solid on the specified side.
      */
-    /*public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side)
+    /*public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection forgeDirection)
     {
         int meta = world.getBlockMetadata(x, y, z);
 

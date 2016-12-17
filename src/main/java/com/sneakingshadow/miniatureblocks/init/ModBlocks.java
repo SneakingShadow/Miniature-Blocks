@@ -19,16 +19,16 @@ public class ModBlocks {
         tileEntities();
     }
 
-    private static void tileEntities(){
+    private static void tileEntities() {
         registerTile(TileEntityMiniatureBlock.class, MiniatureBlock);
     }
 
     private static void registerBlock(Block block){
-        GameRegistry.registerBlock(block, "block_" + block.getUnlocalizedName().substring( block.getUnlocalizedName().indexOf(':')+1 ) );
+        GameRegistry.registerBlock(block, "block_" + block.getUnlocalizedName().substring( block.getUnlocalizedName().indexOf(':') + 1));
     }
 
     private static void registerTile(Class<? extends TileEntity> clazz, Block block){
-        GameRegistry.registerTileEntity(clazz, "tile_" + block.getUnlocalizedName().substring( block.getUnlocalizedName().indexOf(':')+1 ));
+        GameRegistry.registerTileEntity(clazz, "tile_" + block.getUnlocalizedName().substring( block.getUnlocalizedName().indexOf(':') + 1));
     }
 
 }
